@@ -55,18 +55,18 @@ fn = 150;
    tone();
 module tone(){
     difference(){
-        od = 42;
-        n = 32;
+        od = 49;
+        n = 16;
         a = 360/n;
                translate([ 0,0 , 1.2/2])   cy(  od    , 1.2, fn);  
     difference(){
                translate([ 0,0 , 1.2/2])   cy(  od-2    , 2, fn);  
-               translate([ 0,0 , 1.2/2])   cy(  33    , 2, fn);  
+               translate([ 0,0 , 1.2/2])   cy(  36    , 2, fn);  
              for(i=[1:n-1]) rotate([0,0,i*a])  translate([ od/2-3,0 , 1.2/2])   
-                 c(  5   , (i%8==0 ? -.4:0) + 1.2, p);  
+                 c(  15   , (i%8==0 ? -.4:0) + 3.5, p);  
              
-             for(i=[0:1]) rotate([0,0,i*a/2-a/4])  translate([ od/2-3,0 , 1.2/2])   
-                 c(  5   , .8, p);  
+             for(i=[0]) rotate([0,0,i*a])  translate([ od/2-3,0 , 1.2/2])   
+                 c(  15   , 2.8, p);  
              
              }
              for(i=[0:2]) rotate([0,0,i*120])  translate([ 14,0 , 1.2/2])   cy(h2, p, fn); 

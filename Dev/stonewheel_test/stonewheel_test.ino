@@ -8,7 +8,7 @@ Servo servo1;
 
 void sensorChange();
 irendstop rpm0(3, sensorChange, true);
-int val = 7;
+int val = 14;
 const int ledPin = 13;   
 //volatile int tics = 0, lr = 0;
 volatile long lt = 0;
@@ -18,8 +18,7 @@ void sensorChange(){
 //  if(tics % 32 == 0){
 //    state = !state;
 //    if(lr++ > 10) lr = 0;
-  lt = rpm0.tap();
-  if(tic++ > 1000) tic = 0;
+  tic = rpm0.tap(); 
 //  }
 //  lt = rpm0.tap();
 //  tics++;
@@ -31,9 +30,9 @@ void setup() {
   rpm0.ini();
   // put your setup code here, to run once:
 //  pinMode(ledPin, OUTPUT);
-  servo0.attach(5);
+  servo0.attach(6);
   delay(100);
-  servo1.attach(6);
+  servo1.attach(5);
   delay(100);
   Serial.begin(9600);
    Serial.println("ACME tone wheel test ");
@@ -67,7 +66,7 @@ void loop() {
   
 //   int s = map(val, 0, 1023, 0, 180); 
   int s = 90+val;
-   if(tic%8==0) {
+   if(tic%32<=1) {
     val *= -1;
    servo0.write( 90);
 //   servo1.write(  90 );
@@ -79,6 +78,12 @@ void loop() {
    servo0.write(  s );
 //   servo1.write(  s );
    }
+//   if(lt<55) {
+//    
+//   servo0.write( 90);
+//    delay(311);  
+//   servo0.write(  s );
+//   }
    long rpm = rpm0.getRpm();
    
    Serial.print("speed = ");

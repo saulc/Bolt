@@ -35,7 +35,7 @@ class irendstop{
 //    for now use 'non conflicting' double taps.
     long tap(){
       long temp  = millis() - lastClick; 
-//      if(temp  > clickDelay){ 
+      if(temp  > clickDelay){ 
         rpm = 60000000/(32*(lastDur + flipDur));
 //        rpm = lastDur;
         lastDur = flipDur;
@@ -45,7 +45,8 @@ class irendstop{
         if(tik % 64 == 0) rotations++;
         
         lastClick = millis();   
-        return temp; 
+      }
+        return tik; 
     } 
     int getTiks(){ return tik; }
     int getRotations(){ return rotations; }
@@ -62,7 +63,7 @@ class irendstop{
     int pin = 0;
     long flipDur = 0, lastDur = 0;
     long lastClick = 0; // for 3 interupt micros.
-    long clickDelay = 55;  //reduce for "gaming" response, false/extra key taps ok.
+    long clickDelay = 21;  //reduce for "gaming" response, false/extra key taps ok.
     bool isInterupt;    //3 buttons isn't enough.....this may not work
     void   *clickCallback; //just need to save a pointer and the int lib will do the rest
     long doubleTapDelay = 350;  

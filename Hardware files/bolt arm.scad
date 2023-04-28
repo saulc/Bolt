@@ -30,7 +30,7 @@ fn = 150;
 
 //tmnt();
 
-//frame();
+frame();
 //  
 // translate([30, -55, -z])    rotate([ 0 , 0, 90]) tmnt();
 // translate([38, -70, -z*3])    rotate([ 0 , 0, -130]) arm(20);
@@ -41,7 +41,7 @@ fn = 150;
 //darm(90, 20);
 
 //base();
-space();
+//space();
 module space(){
     s = 12;
 	difference(){
@@ -119,7 +119,7 @@ module frame(){
 
         translate([0, 17.25, 12])    rotate([ 90 , 0, 0]) mnt();
         }     
-          translate([ 0, 20, 12])    rotate([ 90 , 0, 0])  holes(4., z*2, 50);
+          translate([ 0, 20, 12])    rotate([ 90 , 0, 0])  holes(h3+.2, z*2, 50);
                   translate([0, 0, z/2])    rotate([ 0 , 0, 0])  cy(30, z*2, 6);
         
     }
