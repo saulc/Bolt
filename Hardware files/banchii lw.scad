@@ -34,7 +34,7 @@ h3 = 3.1;
 //mtr();
 //mtr22();
 // translate([  -60, 0, 0])
-mtr2();
+//mtr2();
 //            translate([  0, 33, 6]) rotate([90,0, 0])  
 //pv();
 //
@@ -48,6 +48,67 @@ mtr2();
 //arm();
 
 //barm(100);
+// translate([  -60, 0, 0])
+md();
+
+module do(){
+    rotate_extrude(angle = 360, convexity = 3, $fn=fn*2)
+      translate([  -22, 0, 0])  projection()  
+    difference(){
+        hull(){
+          
+          translate([  0, -3.5,1/2])  c(1.2, 1.2, 1);
+         
+          translate([  0, 10,0])  intersection(){
+          
+          sec(24, 24, 1);
+             translate([  0, 21,1])   c(111, 50, 2);
+      }
+  }
+      
+        translate([  -1.2, 10,0])    hull(){
+          translate([  .2, -15,0])  c(1.2, 1.2, 4);
+       translate([  0, 0,-2])   sec(24, 24, 4);
+  }
+//        translate([  0, 0, dh/2]) rotate([0,180, 0])    cn(pd, pd-4, dh/2, 1);
+  }
+}
+module mc(){
+    
+    difference(){
+         translate([  0, pd/2+5, 6]) rotate([90,0, 0])  cy(14, 11, 6); 
+         translate([  0, pd/2+8, 6]) rotate([90,0, 0])  cy(3., 6, fn);   
+        translate([  0, 0, dh/2+1]) rotate([0,180, 0])    cn(pd+2, pd+1, dh/2, 1);
+    }
+}
+module md(){
+    mc();
+    difference(){
+        union(){
+       translate([  0, 0,4])  do();
+           translate([  0, 0,11/2])  rotate([0,0, 30]) cy( 14, 11, 6); //motor holder
+        for(i=[0:2]) translate([0,0 ,0]) rotate([0,0, i*120]) hull(){
+            translate([  0, 12, 1]) c(3.5, 20, 2); 
+            translate([  0, 12,6]) rotate([90,0, 0]) cy(2, 20, fn);
+        }
+        
+    }
+            translate([  0, 0,4])   cy( 8.5+.6, 24, fn);
+    
+//     translate([  0, 0,4-.1])  oo();
+         translate([  0, 22, 0]) rotate([90,0, 0])  cy(2, 44, fn);
+    }
+}
+
+module sec(d, a, h){
+        intersection(){
+            
+         translate([-d/2,  0, h/2])  cy(d, h, fn);
+         translate([ -(d*(a/100))/2,  0, h/2])  c(d*(a/100),d, h);
+            
+        }
+}
+
 
 module barm(l, d=4){  
     c = 9;
