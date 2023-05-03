@@ -7,7 +7,9 @@ Servo servo1;
 #include "irendstop.h"
 
 void sensorChange();
-irendstop rpm0(3, sensorChange, true);
+int spin = 7;
+int sp0 = 9, sp1 = 10;
+irendstop rpm0(spin); //, sensorChange, true);
 int val = 14;
 const int ledPin = 13;   
 //volatile int tics = 0, lr = 0;
@@ -28,11 +30,12 @@ void sensorChange(){
 }
 void setup() {
   rpm0.ini();
+  attachInterrupt(spin, sensorChange, CHANGE );  
   // put your setup code here, to run once:
 //  pinMode(ledPin, OUTPUT);
-  servo0.attach(6);
+  servo0.attach(sp0);
   delay(100);
-  servo1.attach(5);
+  servo1.attach(sp1);
   delay(100);
   Serial.begin(9600);
    Serial.println("ACME tone wheel test ");
@@ -71,12 +74,12 @@ void loop() {
    servo0.write( 90);
 //   servo1.write(  90 );
     delay(311);  
-//   servo1.write(  s );
+   servo1.write(  s );
    servo0.write(  s );
    tic++;
    }else{
    servo0.write(  s );
-//   servo1.write(  s );
+   servo1.write(  s );
    }
 //   if(lt<55) {
 //    

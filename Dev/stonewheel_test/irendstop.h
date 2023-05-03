@@ -1,7 +1,7 @@
 #ifndef irendstop_h
 #define irendstop_h
 #include "Arduino.h"
-#include "PinChangeInterrupt.h"
+//#include "PinChangeInterrupt.h"
 /*
  * Code keys v1 - 2022/8/8 Saul C.
  * button dobounce + double tap (needs work)
@@ -12,18 +12,18 @@
 class irendstop{
   public: 
   
-     irendstop(int p , void* callback,  bool isinterupt){
+     irendstop(int p ) { //, void* callback,  bool isinterupt){
       pin = p;
-      clickCallback = callback; 
-      isInterupt = isinterupt;
+//      clickCallback = callback; 
+//      isInterupt = isinterupt;
      }
     ~irendstop(){}
     
     void ini(){
       pinMode(pin, INPUT_PULLUP); 
       //no press n hold, alternate version for 'gaming response'
-      if(isInterupt) attachInterrupt(digitalPinToInterrupt(pin), clickCallback, CHANGE );  
-      else attachPinChangeInterrupt(digitalPinToPinChangeInterrupt(pin), clickCallback, CHANGE); 
+//      if(isInterupt) attachInterrupt(digitalPinToInterrupt(pin), clickCallback, CHANGE );  
+//      else attachPinChangeInterrupt(digitalPinToPinChangeInterrupt(pin), clickCallback, CHANGE); 
       }
      int getPin(){ 
         return pin;
