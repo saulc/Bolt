@@ -8,7 +8,7 @@ Lesson 0 - Teach the teachers how to use github.
  Bolt Botz - Robotics Curriculum Options
  Open Source Hardware, Software and Curriculum!
 
- Presentation - Show students what Exists Now.
+ Presentation - Show students what Exists Now.<br>
  Build and Interact - Hands on demo are always more engaging and interesting
  Programming - Build on a library(if I write one) or Write Full control code yourself
  Control Circuits - Built a bespoke circuit with an Arduino starter kit or hand soldered project board
