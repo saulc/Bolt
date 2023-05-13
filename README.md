@@ -1,6 +1,6 @@
 # Bolt
 
-Hackaday.io prize 2023 Round Finalist.<br>
+Hackaday.io prize 2023 Round 1 Re-engineering Education Finalist.<br>
 https://hackaday.io/project/190291-bolt-bots-micro-servo-droids
 <br>
 Lesson 0 - Teach the teachers how to use github.<br>
