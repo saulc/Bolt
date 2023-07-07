@@ -30,14 +30,19 @@ fn = 150;
 
 //tmnt();
 
-frame();
+//frame();
 //  
-// translate([30, -55, -z])    rotate([ 0 , 0, 90]) tmnt();
-// translate([38, -70, -z*3])    rotate([ 0 , 0, -130]) arm(20);
-// translate([53, -77, -z*2])    rotate([ 0 , 0, 90]) arm(46);
-// 
-// translate([20, -41, -z*2])    rotate([ 0 , 0, -90]) arm(20);
 
+ for(j=[-1,1])  translate([0, - j*x, 0]) mirror([0, j<0?1:0, 0]) 
+ for(i=[-1,1])  translate([- i*x, 0]) mirror([i>0?1:0, 0, 0]) rotate([ 0 , 90, 0]){
+     
+ translate([30, -55, -z])    rotate([ 0 , 0, 90]) tmnt();
+ translate([38, -70, -z*3])    rotate([ 0 , 0, -130]) arm(20);
+ translate([53, -77, -z*2])    rotate([ 0 , 0, 90]) arm(46);
+ 
+ translate([20, -41, -z*2])    rotate([ 0 , 0, -90]) arm(20);
+
+ }
 //darm(90, 20);
 
 //base();

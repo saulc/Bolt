@@ -16,12 +16,21 @@ p = 4;
 
   hd = 28;
   
-    h2 = 3; 
+    h2 = 2.3; 
     h3 = 3.1;
     h2i = 3.6; 
     h3i = 5.2; 
 
 fn = 150;
+
+phx = 12;
+phy = 48.8;
+
+bx = 24;
+by = 56;
+bz = 15;
+wall = 3;
+
 
 //%cy(110, 1, 50);  
  
@@ -39,16 +48,62 @@ fn = 150;
 
 //piv();
 
+//lg(); 
+//               translate([34, 0, 2]) 
+//  rotate([ 0 , 90, 0])   
+//hinge();
 //lg();
-//    difference(){
-//arm(24);
-//          translate([0,  12, 4])   cy(7, 4, fn);
-//        
-//          translate([0,  12, 1])   cy(3.4, 4, fn);
-//          translate([0,  0, 4])   c(3, 14, 4);
-//    }
 
-                     
+//full();
+
+//midh();
+
+bb();
+
+module bb(){
+    difference(){
+    union(){     
+        hull(){
+                translate([0, 0 , bz-p/2])  rotate([0,0,90]) holes(9, p, by+9, 6);
+                translate([0, 0 , bz-p*2])  rotate([0,0,90]) holes(p, 1, by);
+            }
+        midh();
+            hull(){
+                translate([0, 0, 1/2])  rc(bx, by, 1, p);
+                translate([0, 0, bz/2+p])  rc(bx+wall, by+wall, bz-p, p);
+            }
+        }
+        
+                translate([0, 0 , bz-p/2])  rotate([0,0,90]) holes(h3, p+1, by+9);
+                translate([0, by/2-5, p/2+3])  c(8, 10, z);
+        
+                translate([0, 0, bz-p])  c(y, 15, p+1);
+        
+    difference(){
+            hull(){
+                translate([0, 0, 1.2])  rc(bx-wall, by-wall, 1, p);
+                translate([0, 0, bz/2+p])  rc(bx, by, bz, p);
+            }
+            for(i=[-1,1])  translate([0, phy/2*i , 0])  holes(7, p, phx, 6);
+            }
+            for(i=[-1,1])  translate([0, phy/2*i , 1])  holes(h2, p, phx);
+    }
+}
+
+module midh(){
+    difference(){
+    union(){     
+            for(i=[-1, 1])  translate([0, 21*i , p/2])  c(bx*2, p, p);
+            for(i=[-1, 1])  translate([0, 21*i , 0])  holes(12, p, 40, 6);
+        }
+            for(i=[-1:1])  translate([0, 21*i , -1])  holes(h3, x, 40);
+            for(i=[-1:1])  translate([0, 21*i , p+.1])  mirror([0,0,1]) cs(3, 9, 2.2, 40);
+    }
+}
+module full(){              
+    
+   translate([0, 0, 15])  rotate([ 0 , 0, 0])   bb();
+    
              for(j=[-1, 1])   
                  for(i=[ -1, 1])  translate([45*i,j*50, 12])  rotate([ 90 , 0, 0])
                  mirror([0, 0, j==-1?0:1]) {
@@ -57,12 +112,10 @@ fn = 150;
                         translate([ 25*i, 30, -6])       lg();
                  }
 //
-        for(i=[-1, 1])  translate([45*i , 0, 10]) mirror([i>0?1:0, 0, 0]) 
+        for(i=[-1, 1])  translate([51*i , 0, 10]) mirror([i>0?1:0, 0, 0]) 
 fr();
-//               translate([34, 0, 2]) 
-//  rotate([ 0 , 90, 0])   
-//hinge();
-//lg();
+        
+    }
           
 module fr(){
              for(j=[-1, 1])   translate([0,j*50, 12])  rotate([ 90 , 0, 0])
@@ -83,7 +136,7 @@ module fr(){
    translate([34, 0, 2])   hb();
            
                translate([34, 0, -1])  rotate([ 0 , 0, 90])  holes(3.5, 11, 15);
-            for(i=[-1:1])  translate([0, 21*i , -10])  holes(3.1, 44, 62);
+            for(i=[-1:1])  translate([0, 21*i , -10])  holes(h3, 44, 62);
                 
            for(i=[0:5])   rotate([ 0 , 0, i*60]) translate([0, 19   , -1]) cy(20, 11, 6);
           translate([0,  0, 0])  cy(20, 11, 6);
