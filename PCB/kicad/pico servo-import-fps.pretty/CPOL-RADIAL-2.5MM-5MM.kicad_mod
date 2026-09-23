@@ -1,0 +1,116 @@
+(footprint "CPOL-RADIAL-2.5MM-5MM"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "2.5 mm spaced PTHs with 5 mm diameter outline and standard solder mask")
+	(property "Reference" "REF**"
+		(at 0 -2.667 0)
+		(layer "F.SilkS")
+		(uuid "c9a6834b-3ee2-447f-88e0-4e9a25c7ce74")
+		(effects
+			(font
+				(size 0.48768 0.48768)
+				(thickness 0.12192)
+			)
+			(justify bottom)
+		)
+	)
+	(property "Value" "CPOL-RADIAL-2.5MM-5MM"
+		(at 0 2.667 0)
+		(layer "F.Fab")
+		(uuid "ebabc170-ad60-4bc2-8527-73f9facd21e4")
+		(effects
+			(font
+				(size 0.48768 0.48768)
+				(thickness 0.12192)
+			)
+			(justify top)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3c7355a0-874a-41ec-b47a-f5d3f1315383")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6f715126-58ec-4c3d-8dfb-03f727698996")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -0.742 -1.397)
+		(end -1.758 -1.397)
+		(stroke
+			(width 0.2032)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "30f0c2f2-a382-4320-91e3-50b7f7864926")
+	)
+	(fp_line
+		(start 1.25 -1.905)
+		(end 1.25 -0.889)
+		(stroke
+			(width 0.2032)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "dd7838d0-de2a-475f-9fb8-62d189fefca3")
+	)
+	(fp_line
+		(start 1.758 -1.397)
+		(end 0.742 -1.397)
+		(stroke
+			(width 0.2032)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "eeb21479-f88d-4f3f-886a-dd4744d8609f")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 2.5 0)
+		(stroke
+			(width 0.2032)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "94641741-3b8f-4ff4-ac21-611ef8b62b49")
+	)
+	(pad "1" thru_hole rect
+		(at 1.25 0)
+		(size 1.651 1.651)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "13626095-b150-474b-a950-c6b84985906b")
+	)
+	(pad "2" thru_hole circle
+		(at -1.25 0)
+		(size 1.651 1.651)
+		(drill 0.7)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "f5489342-624d-4355-a3cc-e1bf38eac1ba")
+	)
+	(embedded_fonts no)
+)

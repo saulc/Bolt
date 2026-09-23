@@ -54,11 +54,11 @@ wall = 3;
 //hinge();
 //lg();
 
-//full();
+full();
 
 //midh();
 
-bb();
+//bb();
 
 module bb(){
     difference(){
